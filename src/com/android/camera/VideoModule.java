@@ -786,8 +786,9 @@ public class VideoModule implements CameraModule,
                 videoQuality = defaultQuality;
             } else {
                 // check for highest quality if default quality is not supported
-                videoQuality = CameraSettings.getSupportedHighestVideoQuality(mCameraId,
-                        defaultQuality, mParameters);
+                //videoQuality = CameraSettings.getSupportedHighestVideoQuality(mCameraId,
+                //        defaultQuality, mParameters);
+            	videoQuality = "4";
             }
             mPreferences.edit().putString(CameraSettings.KEY_VIDEO_QUALITY, videoQuality);
         }
