@@ -812,7 +812,14 @@ public class CameraSettings {
         // Check for supported quality
         if (ApiHelper.HAS_FINE_RESOLUTION_QUALITY_LEVELS) {
             getFineResolutionQuality(supported,cameraId,parameters);
-        } else {
+        }
+        else if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_HIGH)) {
+            supported.add(Integer.toString(CamcorderProfile.QUALITY_HIGH));
+        }
+        else if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_LOW)) {
+            supported.add(Integer.toString(CamcorderProfile.QUALITY_LOW));
+        }
+        else {
             supported.add(Integer.toString(CamcorderProfile.QUALITY_HIGH));
             CamcorderProfile high = CamcorderProfile.get(
                     cameraId, CamcorderProfile.QUALITY_HIGH);
